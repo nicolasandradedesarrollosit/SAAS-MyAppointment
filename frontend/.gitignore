@@ -1,0 +1,53 @@
+# Node modules
+node_modules/
+
+# Build output (Vite)
+dist/
+build/
+
+# Local environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor files
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Cache and temporary files (Vite, frameworks, tools)
+.vite/
+.cache/
+.temp/
+.tmp/
+*.tmp
+
+# Test coverage
+coverage/
+
+# TypeScript build cache
+*.tsbuildinfo
+
+# Sass/Less cache
+.sass-cache/
+
+# Storybook build and cache (if using Storybook)
+.storybook-out/
+.out/
+storybook-static/

@@ -1,0 +1,29 @@
+.containerUserHomePage {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+}
+
+.containerUserHomePage .containerUserHomePageHero {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerUserHomePage .containerUserHomePageMain {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+}
+
+.containerUserHomePage .containerUserHomePageFooter {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: auto;
+}

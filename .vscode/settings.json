@@ -1,0 +1,45 @@
+{
+  // ===== Formato y estilo =====
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "files.eol": "\n",
+  // Detección correcta de JSX
+  "files.associations": {
+    "*.js": "javascript",
+    "*.jsx": "javascriptreact"
+  },
+  // ESLint y Prettier
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "prettier.requireConfig": true,
+  // Rutas para monorepo (frontend + backend)
+  "eslint.workingDirectories": [
+    {
+      "directory": "./frontend",
+      "changeProcessCWD": true
+    },
+    {
+      "directory": "./backend",
+      "changeProcessCWD": true
+    }
+  ],
+  // ===== Ocultar archivos/carpeta que no interesan =====
+  "files.exclude": {
+    "**/.env": true,
+    "**/.env.*": true,
+    "**/node_modules": true,
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/.cache": true,
+    "**/.vite": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/logs": true
+  },
+  // Terminal por defecto
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.defaultProfile.windows": "PowerShell"
+}

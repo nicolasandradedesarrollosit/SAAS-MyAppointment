@@ -1,0 +1,72 @@
+.containerHero {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(-45deg, #000000, #1a0033, #330066, #660099, #000000);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+  color: #FFF;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerHero .containerTextHero {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.containerTextHero .titleHero {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  font-weight: 800;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(135deg, #ffffff, #ff99dd, #cc66ff, #ffffff);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.containerTextHero .subtitleHero {
+  font-size: 1.5rem;
+  opacity: 0.7;
+}
+
+.containerTextHero .containerHeroButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 100%;
+  height: auto;
+  gap: 1.5rem;
+}
+
+.containerHeroButton .heroButton1 {
+  padding: 1rem;
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  color: #FFF;
+  border-radius: 2rem;
+}
+
+.containerHeroButton .heroButton2 {
+  padding: 1rem;
+  background: linear-gradient(135deg, #1a0033, #330066, #4b0082, #2e003e);
+  color: #FFF;
+  border-radius: 2rem;
+}
+
+.containerMockUpHero {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  height: 100vh;
+  align-items: center;
+}
