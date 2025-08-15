@@ -3,12 +3,9 @@
   flex-direction: row;
   height: 100vh;
   width: 100%;
-  background: linear-gradient(-45deg, #000000, #1a0033, #330066, #660099, #000000);
-  background-size: 400% 400%;
-  animation: gradientShift 8s ease infinite;
   color: #FFF;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -18,12 +15,13 @@
   width: 35%;
   height: 100vh;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-top: 15rem;
   gap: 3rem;
 }
 
 .containerTextHero .titleHero {
-  font-size: 3.5rem;
+  font-size: 4.5rem;
   line-height: 1.2;
   font-weight: 800;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
@@ -37,6 +35,7 @@
 .containerTextHero .subtitleHero {
   font-size: 1.5rem;
   opacity: 0.7;
+  width: 100%;
 }
 
 .containerTextHero .containerHeroButton {
@@ -54,19 +53,120 @@
   background: linear-gradient(135deg, #f093fb, #f5576c);
   color: #FFF;
   border-radius: 2rem;
+  opacity: 0.85;
+  transition: 0.5s ease-in-out;
 }
 
 .containerHeroButton .heroButton2 {
   padding: 1rem;
-  background: linear-gradient(135deg, #1a0033, #330066, #4b0082, #2e003e);
+  background: linear-gradient(135deg, #c084d9, #ab47bc);
   color: #FFF;
   border-radius: 2rem;
+  opacity: 0.85;
+  transition: 0.5s ease-in-out;
 }
 
-.containerMockUpHero {
+.containerHeroButton .heroButton3 {
+  padding: 1rem;
+  background: linear-gradient(135deg, #7b3ba0, #5e1f82);
+  color: #FFF;
+  border-radius: 2rem;
+  opacity: 0.85;
+  transition: 0.5s ease-in-out;
+}
+
+.containerHeroButton .heroButton1:hover,
+.containerHeroButton .heroButton2:hover,
+.containerHeroButton .heroButton3:hover {
+  opacity: 0.7;
+}
+
+.containerHero .containerMockUpHero {
   display: flex;
-  flex-direction: column;
-  width: 35%;
+  flex-direction: row;
+  width: 45%;
   height: 100vh;
   align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.containerMockUpHero .mockUpHero {
+  padding: 2rem;
+  border-radius: 2rem;
+  gap: 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  color: #000;
+  background: linear-gradient(180deg, #ffffff, #c3c9f1, #8c94d9);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.mockUpHero .mockUpColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mockUpColumn .columnItem {
+  padding: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  min-height: 6vh;
+  max-height: 6vh;
+  transition: 0.5s ease-in-out;
+}
+
+.mockUpColumn .columnItem:hover {
+  transform: scale(1.1);
+}
+
+.mockUpColumn .upperItem {
+  background: linear-gradient(135deg, #2a003f, #3d0066, #5a189a, #240046);
+  color: #FFF;
+}
+
+.columnItem .nombrePerson {
+  font-size: 0.8rem;
+
+}
+
+.columnItem .servicePerson {
+  font-size: 0.7rem;
+}
+
+.mockUpColumn .able {
+  background: linear-gradient(135deg, #c8f0dd, #a4e4c2);
+  color: #2b3a33;
+  opacity: 0.7;
+}
+
+.mockUpColumn .reserved1 {
+  background: linear-gradient(135deg, #fbd4e6, #f8b8d1);
+  color: #4a0033;
+}
+
+.mockUpColumn .reserved2 {
+  background: linear-gradient(135deg, #f8b8d1, #f48fb1);
+  color: #fff;
+}
+
+.mockUpColumn .reserved3 {
+  background: linear-gradient(135deg, #e5c5f0, #ce93d8);
+  color: #fff;
+}
+
+.mockUpColumn .reserved4 {
+  background: linear-gradient(135deg, #c084d9, #ab47bc);
+  color: #fff;
+}
+
+.mockUpColumn .reserved5 {
+  background: linear-gradient(135deg, #7b3ba0, #5e1f82);
+  color: #fff;
 }
