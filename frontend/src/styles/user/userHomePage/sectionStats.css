@@ -1,5 +1,5 @@
 .containerSectionUserStats {
-  height: 120vh;
+  height: 130vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@
   flex-direction: column;
   width: 60%;
   text-align: left;
-  padding: 10rem 0 5rem 10rem;
+  padding: 3rem 0 3rem 0rem;
   gap: 2rem;
 }
 
@@ -50,8 +50,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  gap: 2rem;
   height: 100%;
-  width: 60%;
+  width: 70%;
   background: linear-gradient(145deg,
       rgba(255, 255, 255, 0.12),
       rgba(255, 255, 255, 0.06));
@@ -60,7 +61,7 @@
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 2rem;
   box-shadow: 0 10px 30px rgba(181, 140, 217, 0.35);
-  margin-bottom: 3rem;
+  padding: 5rem 2rem;
 }
 
 .containerSectionStatsCards>.containerStatsRow {

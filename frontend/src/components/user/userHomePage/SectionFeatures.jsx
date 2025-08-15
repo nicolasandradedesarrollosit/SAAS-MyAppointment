@@ -7,7 +7,7 @@ function SectionFeatures() {
       <div className='containerFeaturesSection'>
         <div className='containerFeaturesSectionTitle'>
           <h2 className='titleFeatures'>
-            Comenzá a disfrutar de todas las funcionalidades.
+            Comenzá a disfrutar de todas las funcionalidades
           </h2>
           <p className='subtitleFeatures'>Agendá citas, pagá por adelantado, mirá tus resumenes de transacciones</p>
         </div>
