@@ -1,0 +1,138 @@
+.containerBusinessHomePage {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+}
+
+.containerBusinessHomePage>.containerHeroBusinessPage {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: auto;
+  justify-content: center;
+  align-items: center;
+  animation: gradientShift 8s ease infinite;
+  background: linear-gradient(-45deg, #000000, #120018, #1f0030, #2a0040, #000000);
+  background-size: 400% 400%;
+
+}
+
+.containerBusinessHomePage>.containerContentBusinessPage {
+  position: relative;
+  background-image:
+    radial-gradient(180px 180px at 25% 35%, rgba(0, 40, 85, 0.4) 0%, rgba(0, 40, 85, 0.00) 65%),
+    radial-gradient(240px 240px at 75% 25%, rgba(15, 15, 25, 0.8) 0%, rgba(15, 15, 25, 0.00) 70%),
+    radial-gradient(200px 200px at 35% 75%, rgba(0, 180, 255, 0.15) 0%, rgba(0, 180, 255, 0.00) 60%),
+    radial-gradient(160px 160px at 80% 80%, rgba(20, 20, 35, 0.6) 0%, rgba(20, 20, 35, 0.00) 65%),
+    radial-gradient(120px 120px at 60% 40%, rgba(0, 255, 200, 0.08) 0%, rgba(0, 255, 200, 0.00) 70%),
+    radial-gradient(closest-side at 50% 50%, rgba(8, 12, 20, 0.98), #0a0a0f 80%);
+  background-color: #0a0a0f;
+  background-repeat: no-repeat;
+  background-size: 350% 350%, 450% 450%, 380% 380%, 320% 320%, 400% 400%, 100% 100%;
+  background-position:
+    0% 0%,
+    100% 0%,
+    0% 100%,
+    100% 100%,
+    50% 50%,
+    50% 50%;
+
+  animation: slowDrift 25s ease-in-out infinite, gentlePulse 20s ease-in-out infinite;
+  will-change: background-position, background-size;
+  isolation: isolate;
+}
+
+.containerBusinessHomePage>.containerFooterBusinessPage {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: auto;
+  animation: gradientShift 8s ease infinite;
+  background: linear-gradient(-45deg, #000000, #120018, #1f0030, #2a0040, #000000);
+  background-size: 400% 400%;
+}
+
+@keyframes slowDrift {
+  0% {
+    background-position:
+      0% 0%,
+      100% 0%,
+      0% 100%,
+      100% 100%,
+      50% 50%,
+      50% 50%;
+  }
+
+  25% {
+    background-position:
+      10% 15%,
+      90% 10%,
+      15% 85%,
+      85% 90%,
+      45% 55%,
+      50% 50%;
+  }
+
+  50% {
+    background-position:
+      20% 25%,
+      80% 20%,
+      25% 75%,
+      75% 80%,
+      40% 60%,
+      50% 50%;
+  }
+
+  75% {
+    background-position:
+      15% 35%,
+      85% 30%,
+      35% 65%,
+      65% 70%,
+      45% 55%,
+      50% 50%;
+  }
+
+  100% {
+    background-position:
+      0% 0%,
+      100% 0%,
+      0% 100%,
+      100% 100%,
+      50% 50%,
+      50% 50%;
+  }
+}
+
+@keyframes gentlePulse {
+
+  0%,
+  100% {
+    background-size: 350% 350%, 450% 450%, 380% 380%, 320% 320%, 400% 400%, 100% 100%;
+  }
+
+  50% {
+    background-size: 380% 380%, 420% 420%, 350% 350%, 350% 350%, 430% 430%, 100% 100%;
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .containerUserHomePage>.containerUserHomeMain {
+    animation: none;
+  }
+}

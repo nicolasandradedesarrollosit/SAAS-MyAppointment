@@ -9,7 +9,7 @@
   align-items: center;
 }
 
-.containerUserHomeFooter .userHomeFooter {
+.containerUserHomeFooter>.userHomeFooter {
   display: flex;
   flex-direction: row;
   width: 80%;
@@ -23,7 +23,7 @@
   -webkit-backdrop-filter: blur(20px) brightness(0.6) contrast(1);
 }
 
-.userHomeFooter .containerFooterLinks {
+.userHomeFooter>.containerFooterLinks {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -33,40 +33,61 @@
   margin-left: 10rem;
 }
 
-.containerFooterLinks .footerLink {
+.containerFooterLinks>.footerLink {
   text-decoration: none;
   padding: 0.5rem;
 }
 
-.userHomeFooter .footerSocialMedia {
+.userHomeFooter>.footerSocialMedia {
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 25%;
   justify-content: center;
   text-align: right;
-  margin-right: 10rem;
 }
 
-.footerSocialMedia a {
+.footerSocialMedia>a {
   padding: 1rem;
 }
 
-.containerUserHomeFooter .containerPayment {
-  height: 5vh;
+.containerUserHomeFooter>.containerPayment {
+  height: 10vh;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 7rem;
+  gap: 4rem;
   margin-top: 1rem;
 }
 
-.containerUserHomeFooter .containerRigths {
-  height: 5vh;
+a>svg {
+  height: 50px;
+  width: 50px;
+  transition: all ease 0.4s;
+  cursor: pointer;
+}
+
+a>svg:hover {
+  scale: 1.1;
+}
+
+.containerUserHomeFooter>.containerRigths {
+  height: 3vh;
   width: 100%;
   text-align: center;
   align-items: center;
   justify-content: center;
+}
+
+.containerPayment>svg {
+  height: 50px;
+  width: 50px;
+  transition: all ease 0.4s;
+  cursor: pointer;
+}
+
+.containerPayment>svg:hover {
+  scale: 1.1;
 }

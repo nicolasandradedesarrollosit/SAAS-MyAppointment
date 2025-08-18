@@ -1,5 +1,5 @@
 .containerFAQSection {
-  height: 120vh;
+  height: 70vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -12,10 +12,7 @@
 .containerFAQSection>.containerTitle {
   padding: 2rem 0 0 0;
   display: flex;
-  width: 45%;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
+  width: 50%;
 }
 
 .containerTitle>.titleSectionFAQ {

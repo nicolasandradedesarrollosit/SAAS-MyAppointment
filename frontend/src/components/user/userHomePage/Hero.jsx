@@ -8,7 +8,7 @@ function Hero() {
       <header className='containerHero'>
         <div className='containerTextHero'>
           <h2 className='titleHero'>
-            El software de gestión de turnos elegido por los negocios argentinos
+            My appointment: El software de gestión de turnos elegido por los negocios argentinos
           </h2>
           <span className='subtitleHero'>
             Encontrá el servicio que necesitás de forma fácil, rápida y segura
