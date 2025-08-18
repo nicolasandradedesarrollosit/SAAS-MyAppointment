@@ -1,7 +1,7 @@
 .containerSectionPayments {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 90vh;
   width: 100%;
   overflow-x: hidden;
   gap: 4rem;

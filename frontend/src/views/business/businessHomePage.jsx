@@ -4,6 +4,7 @@ import BusinessHeroSection from '../../components/business/businessHomePage/Busi
 import SectionFeatures from '../../components/business/businessHomePage/BusinessFeaturesSection.jsx';
 import SectionPayments from '../../components/business/businessHomePage/BusinessSectionPayment.jsx';
 import SectionOpinions from '../../components/business/businessHomePage/BusinessSectionOpinions.jsx';
+import SectionBar from '../../components/business/businessHomePage/BusinessBarGoToPlans.jsx'
 // import SectionFAQ from '../../components/business/SectionFAQBusiness.jsx'
 import Footer from '../../components/others/Footer.jsx';
 
@@ -19,6 +20,7 @@ function BusinessHomePage() {
           <SectionFeatures />
           <SectionPayments />
           <SectionOpinions />
+          <SectionBar />
           {/* <SectionFAQ /> */}
         </main>
         <section className='containerFooterBusinessPage'>

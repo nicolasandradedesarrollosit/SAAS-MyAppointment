@@ -1,0 +1,324 @@
+.containerSectionOpinions {
+  height: 70vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  padding: 2rem 0;
+}
+
+.containerSectionOpinions>.containerTitleSectionOpinions {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerTitleSectionOpinions>.titleOpinions {
+  color: #FFF;
+  font-size: 3.5rem;
+  width: 100%;
+  text-align: center;
+  font-weight: 800;
+  text-shadow: 0 8px 32px rgba(0, 180, 255, 0.4);
+  background: linear-gradient(135deg, #fff 0%, #00b4ff 50%, #00ffcc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.containerSectionOpinions>.containerContentOpinions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  height: 50vh;
+  width: 100%;
+  gap: 2.5rem;
+  padding: 0 2rem;
+  margin: 0 0 5rem 0;
+}
+
+.containerContentOpinions>.containerCardsOpinions {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 23%;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 180, 255, 0.15), 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(20px) saturate(180%);
+  position: relative;
+  overflow: hidden;
+}
+
+.containerContentOpinions>.containerCardsOpinions::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #00b4ff, #00ffcc);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.containerContentOpinions>.containerCardsOpinions:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 32px 64px rgba(0, 180, 255, 0.25), 0 16px 32px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(25px) saturate(200%);
+}
+
+.containerContentOpinions>.containerCardsOpinions:hover::before {
+  opacity: 1;
+}
+
+.containerCardsOpinions>.containerNamenBusiness {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 2rem 2rem 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.containerNamenBusiness>.namePerson {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  width: 100%;
+  line-height: 1.2;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.containerNamenBusiness>.nameBusiness {
+  font-size: 1.1rem;
+  color: rgba(0, 255, 204, 0.9);
+  width: 100%;
+  opacity: 0.9;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.containerCardsOpinions>.cardContent {
+  padding: 1rem 2rem 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+
+.cardContent>.opinionText {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 2rem;
+  font-size: 1.1rem;
+  text-align: center;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.opinionText>.opinion {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  font-weight: 400;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-style: italic;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.opinionText>.starOpinion {
+  font-size: 1.5rem;
+  filter: drop-shadow(0 2px 4px rgba(255, 193, 7, 0.3));
+  letter-spacing: 0.2em;
+}
+
+
+@media (max-width: 1024px) {
+  .containerSectionOpinions {
+    height: auto;
+    gap: 3rem;
+    padding: 2rem 1rem;
+  }
+
+  .containerTitleSectionOpinions>.titleOpinions {
+    font-size: 2.8rem;
+  }
+
+  .containerSectionOpinions>.containerContentOpinions {
+    height: auto;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .containerContentOpinions>.containerCardsOpinions {
+    width: 30%;
+    min-height: 400px;
+  }
+
+  .containerNamenBusiness>.namePerson {
+    font-size: 1.4rem;
+  }
+
+  .containerNamenBusiness>.nameBusiness {
+    font-size: 1rem;
+  }
+
+  .cardContent>.opinionText {
+    font-size: 1rem;
+  }
+
+  .opinionText>.starOpinion {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .containerSectionOpinions {
+    height: auto;
+    gap: 2.5rem;
+    padding: 2rem 0.5rem;
+  }
+
+  .containerTitleSectionOpinions>.titleOpinions {
+    font-size: 2.2rem;
+  }
+
+  .containerSectionOpinions>.containerContentOpinions {
+    flex-direction: column;
+    height: auto;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  .containerContentOpinions>.containerCardsOpinions {
+    width: 100%;
+    max-width: 400px;
+    min-height: 300px;
+    margin: 0 auto;
+  }
+
+  .containerCardsOpinions>.containerNamenBusiness {
+    padding: 1.5rem 1.5rem 0.5rem;
+  }
+
+  .containerCardsOpinions>.cardContent {
+    padding: 1rem 1.5rem 1.5rem;
+  }
+
+  .cardContent>.opinionText {
+    gap: 1.5rem;
+  }
+}
+
+/* Móviles - 480px y menos */
+@media (max-width: 480px) {
+  .containerSectionOpinions {
+    gap: 2rem;
+    padding: 1.5rem 0.5rem;
+  }
+
+  .containerTitleSectionOpinions>.titleOpinions {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+
+  .containerSectionOpinions>.containerContentOpinions {
+    gap: 1.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .containerContentOpinions>.containerCardsOpinions {
+    width: 100%;
+    max-width: 350px;
+    min-height: 280px;
+    border-radius: 1.5rem;
+  }
+
+  .containerCardsOpinions>.containerNamenBusiness {
+    padding: 1.2rem 1.2rem 0.5rem;
+    gap: 0.3rem;
+  }
+
+  .containerNamenBusiness>.namePerson {
+    font-size: 1.2rem;
+  }
+
+  .containerNamenBusiness>.nameBusiness {
+    font-size: 0.9rem;
+  }
+
+  .containerCardsOpinions>.cardContent {
+    padding: 0.8rem 1.2rem 1.2rem;
+  }
+
+  .cardContent>.opinionText {
+    font-size: 0.95rem;
+    gap: 1.2rem;
+  }
+
+  .opinionText>.starOpinion {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .containerSectionOpinions {
+    gap: 1.5rem;
+    padding: 1rem 0.3rem;
+  }
+
+  .containerTitleSectionOpinions>.titleOpinions {
+    font-size: 1.5rem;
+  }
+
+  .containerSectionOpinions>.containerContentOpinions {
+    gap: 1.2rem;
+    padding: 0 0.3rem;
+  }
+
+  .containerContentOpinions>.containerCardsOpinions {
+    max-width: 300px;
+    min-height: 260px;
+    border-radius: 1.2rem;
+  }
+
+  .containerCardsOpinions>.containerNamenBusiness {
+    padding: 1rem 1rem 0.5rem;
+  }
+
+  .containerNamenBusiness>.namePerson {
+    font-size: 1.1rem;
+  }
+
+  .containerNamenBusiness>.nameBusiness {
+    font-size: 0.85rem;
+  }
+
+  .containerCardsOpinions>.cardContent {
+    padding: 0.7rem 1rem 1rem;
+  }
+
+  .cardContent>.opinionText {
+    font-size: 0.9rem;
+    gap: 1rem;
+  }
+
+  .opinionText>.starOpinion {
+    font-size: 1.1rem;
+  }
+}
