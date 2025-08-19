@@ -1,0 +1,236 @@
+.containerSectionBar {
+  display: flex;
+  flex-direction: column;
+  height: 35vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  background: linear-gradient(135deg, #fff 0%, #00b4ff 50%, #00ffcc 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.containerSectionBar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(0, 255, 204, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.containerSectionBar>.containerText {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  color: #FFF;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.containerText>.titleBar {
+  font-size: 2.8rem;
+  font-weight: 800;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.containerText>.subtitleBar {
+  font-size: 1.3rem;
+  opacity: 0.9;
+  font-weight: 400;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  line-height: 1.4;
+  max-width: 700px;
+}
+
+.containerSectionBar>.containerButton {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.containerButton>.linkButton1 {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1.2rem 2.5rem;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #00b4ff;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+.containerButton>.linkButton1:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  color: #0099dd;
+}
+
+.containerButton>.linkButton2 {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.2rem 2.5rem;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  color: #FFF;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+.containerButton>.linkButton2:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 1);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 1024px) {
+  .containerSectionBar {
+    height: auto;
+    min-height: 35vh;
+    gap: 2.5rem;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .containerText>.titleBar {
+    font-size: 2.4rem;
+  }
+
+  .containerText>.subtitleBar {
+    font-size: 1.2rem;
+  }
+
+  .containerButton>.linkButton1,
+  .containerButton>.linkButton2 {
+    padding: 1.1rem 2rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .containerSectionBar {
+    height: auto;
+    min-height: 40vh;
+    gap: 2rem;
+    padding: 3rem 1rem;
+  }
+
+  .containerSectionBar>.containerText {
+    gap: 1.2rem;
+  }
+
+  .containerText>.titleBar {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+
+  .containerText>.subtitleBar {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  .containerSectionBar>.containerButton {
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .containerButton>.linkButton1,
+  .containerButton>.linkButton2 {
+    padding: 1.2rem 2rem;
+    font-size: 1.1rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .containerSectionBar {
+    height: auto;
+    min-height: 45vh;
+    gap: 1.5rem;
+    padding: 2.5rem 0.8rem;
+  }
+
+  .containerSectionBar>.containerText {
+    gap: 1rem;
+  }
+
+  .containerText>.titleBar {
+    font-size: 1.7rem;
+    line-height: 1.3;
+  }
+
+  .containerText>.subtitleBar {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .containerSectionBar>.containerButton {
+    gap: 1.2rem;
+    max-width: 300px;
+  }
+
+  .containerButton>.linkButton1,
+  .containerButton>.linkButton2 {
+    padding: 1.1rem 1.8rem;
+    font-size: 1rem;
+    border-radius: 0.8rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .containerSectionBar {
+    height: auto;
+    min-height: 50vh;
+    gap: 1.2rem;
+    padding: 2rem 0.5rem;
+  }
+
+  .containerSectionBar>.containerText {
+    gap: 0.8rem;
+  }
+
+  .containerText>.titleBar {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  .containerText>.subtitleBar {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .containerSectionBar>.containerButton {
+    gap: 1rem;
+    max-width: 280px;
+  }
+
+  .containerButton>.linkButton1,
+  .containerButton>.linkButton2 {
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+    border-radius: 0.7rem;
+  }
+}
