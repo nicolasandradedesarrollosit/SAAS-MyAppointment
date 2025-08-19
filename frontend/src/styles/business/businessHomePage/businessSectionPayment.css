@@ -1,12 +1,12 @@
 .containerSectionPayments {
   display: flex;
   flex-direction: column;
-  height: 90vh;
+  height: auto;
   width: 100%;
   overflow-x: hidden;
   gap: 4rem;
   align-items: center;
-  padding: 2rem 0;
+  padding: 0 0 5rem 0;
 }
 
 .containerSectionPayments>.containerTitleSectionPayments {
@@ -14,14 +14,14 @@
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
-  height: 20%;
-  padding: 2rem 0 0 0;
+  height: auto;
+  padding-top: 2rem;
   animation: fadeInUp 1s ease-out;
 }
 
 .containerTitleSectionPayments>.titlePayment {
   color: #FFF;
-  font-size: 3rem;
+  font-size: clamp(2.5rem, 5vw, 3rem);
   width: 100%;
   text-align: center;
   font-weight: 700;
@@ -34,9 +34,9 @@
 
 .containerTitleSectionPayments>.subtitlePayment {
   color: #FFF;
-  font-size: 1.3rem;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
   opacity: 0.85;
-  width: 75%;
+  width: 700px;
   text-align: center;
   line-height: 1.5;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
@@ -46,18 +46,19 @@
   display: flex;
   flex-direction: row;
   gap: 2rem;
-  width: 70%;
-  height: 50vh;
+  width: 1200px;
+  height: auto;
   justify-content: center;
   align-items: flex-end;
   animation: fadeInUp 1.2s ease-out 0.2s both;
+  min-height: 50vh;
 }
 
 .containerPayment>.cardPayment {
   display: flex;
   flex-direction: column;
-  width: 25%;
-  height: 90%;
+  width: 500px;
+  height: 550px;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(15px);
   color: #FFF;
@@ -92,7 +93,7 @@
 }
 
 #popular {
-  height: 100%;
+  height: 600px;
   background: rgba(0, 180, 255, 0.1);
   transform: scale(1.05);
 }
@@ -120,14 +121,14 @@
 .cardPayment>.titleCard {
   width: 100%;
   padding: 2rem 0 0 2rem;
-  font-size: 2.2rem;
+  font-size: clamp(1.8rem, 3.5vw, 2.2rem);
   font-weight: 700;
   color: #FFF;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .cardPayment>.subtitleCard {
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
   padding: 0.5rem 0 1rem 2rem;
   font-weight: 400;
   opacity: 0.8;
@@ -144,7 +145,7 @@
 }
 
 .priceCard>.numberPriceCard {
-  font-size: 2.8rem;
+  font-size: clamp(2.2rem, 4.5vw, 2.8rem);
   background: linear-gradient(135deg, #00b4ff 0%, #00ffcc 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -162,7 +163,7 @@
 .cardPayment>.featuresCard {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 5px;
   padding: 1rem 0 0 2rem;
   flex-grow: 1;
 }
@@ -171,7 +172,7 @@
   display: flex;
   flex-direction: row;
   gap: 0.8rem;
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
   color: #FFF;
   align-items: flex-start;
 }
@@ -190,7 +191,7 @@
   justify-content: center;
   align-items: center;
   background: linear-gradient(135deg, rgba(0, 180, 255, 0.8) 0%, rgba(0, 255, 200, 0.8) 100%);
-  margin: 2rem 0 0 0;
+  margin-top: auto;
   border-radius: 0;
   border-bottom-left-radius: 1.5rem;
   border-bottom-right-radius: 1.5rem;
@@ -220,7 +221,7 @@
 }
 
 .containerButton>.buttonCard {
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 2vw, 1.3rem);
   color: #FFF;
   padding: 1.5rem 0;
   font-weight: 700;
@@ -248,17 +249,16 @@
 
 @media (max-width: 768px) {
   .containerSectionPayments {
-    height: auto;
     gap: 2rem;
   }
 
   .containerTitleSectionPayments>.titlePayment {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 4vw, 2.5rem);
   }
 
   .containerTitleSectionPayments>.subtitlePayment {
     width: 90%;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
   }
 
   .containerSectionPayments>.containerPayment {
