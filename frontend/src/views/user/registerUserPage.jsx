@@ -1,19 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import GoBack from '../../components/others/GoBack';
 import '../../styles/user/userRegisterPage/registerUserPage.css';
 
 function UserRegisterPage() {
   return (
     <>
       <section className='containerAllRegister'>
-        <div className='goBack'>
-          <Link className='goBackSVG' to={'/'}>
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" strokeWidth="2" />
-            </svg>
-            Volver
-          </Link>
-        </div>
+        <GoBack dominio='/' />
         <section className='mainContainerRegisterSection'>
           <h2 className='titleSection'>
             Regístrate
@@ -45,7 +39,6 @@ function UserRegisterPage() {
                 </span>
               </div>
             </div>
-
           </div>
         </section>
       </section>

@@ -1,0 +1,353 @@
+.containerRegisterBusiness {
+  color: #2c3e50;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  height: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  min-height: 100vh;
+}
+
+.containerRegisterBusiness::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.2) 0%, transparent 50%);
+  z-index: 0;
+  animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+
+  33% {
+    transform: translate(30px, -30px) rotate(120deg);
+  }
+
+  66% {
+    transform: translate(-20px, 20px) rotate(240deg);
+  }
+}
+
+.containerRegisterBusiness>.registerBusinessForm {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  position: relative;
+  z-index: 1;
+  animation: fadeInScale 0.5s ease-in-out;
+}
+
+.registerBusinessForm>.titleRegisterBusiness {
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff, rgba(255, 255, 255, 0.8));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  width: 100%;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 0 1rem;
+}
+
+.registerBusinessForm>.containerFormContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 2rem;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1100px;
+  min-height: auto;
+  position: relative;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  margin: 1rem;
+}
+
+.containerFormContent>.containerFieldForm {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.containerFieldForm>.containerSVG {
+  position: absolute;
+  left: -50px;
+  top: 10px;
+  display: block;
+}
+
+.containerFieldForm>.fieldForm {
+  width: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fieldForm label {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: #2c3e50;
+  top: 10px;
+  left: 20px;
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.fieldForm input {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  border: 2px solid #dfe6e9;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  color: #2c3e50;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.fieldForm input:focus {
+  border-color: #667eea;
+  outline: none;
+}
+
+.fieldForm input:focus+label,
+.fieldForm input:not(:placeholder-shown)+label {
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  color: #667eea;
+}
+
+.containerFormContent>.containerLinks {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  width: 100%;
+  max-width: 600px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.containerLinks>.link {
+  text-decoration: none;
+  color: #2c3e50;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 500;
+  position: relative;
+  transition: all 0.6s ease;
+  text-align: center;
+}
+
+.containerLinks>.link:hover {
+  color: #667eea;
+}
+
+.containerFormContent>.containerSubmit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 2rem 0;
+  gap: 1rem;
+}
+
+.containerSubmit>.submitBtn {
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  border: none;
+  background: #667eea;
+  color: #ffffff;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  max-width: 400px;
+  min-height: 50px;
+}
+
+.submitBtn:hover {
+  background: #5a67d8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+.small {
+  font-size: clamp(0.7rem, 2vw, 0.8rem);
+}
+
+.errorMessage {
+  display: none;
+  color: #e74c3c;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  text-align: center;
+}
+
+.successMessage {
+  display: none;
+  color: #28a745;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  text-align: center;
+}
+
+.show {
+  display: flex;
+}
+
+/* Media Queries para diferentes dispositivos */
+
+/* Tablets en orientación vertical y móviles grandes */
+@media screen and (max-width: 768px) {
+  .containerRegisterBusiness {
+    padding: 0.5rem;
+  }
+
+  .registerBusinessForm>.containerFormContent {
+    padding: 2rem 1rem;
+    margin: 0.5rem;
+    border-radius: 15px;
+    gap: 1.5rem;
+  }
+
+  .containerFieldForm>.containerSVG {
+    display: none;
+    /* Oculta los iconos SVG en móviles */
+  }
+
+  .containerFormContent>.containerLinks {
+    gap: 1rem;
+  }
+
+  .containerSubmit>.submitBtn {
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+/* Móviles en orientación vertical */
+@media screen and (max-width: 480px) {
+  .containerRegisterBusiness {
+    padding: 0.25rem;
+  }
+
+  .registerBusinessForm>.containerFormContent {
+    padding: 1.5rem 0.75rem;
+    margin: 0.25rem;
+    border-radius: 10px;
+    gap: 1rem;
+  }
+
+  .containerFormContent>.containerFieldForm {
+    gap: 0.5rem;
+  }
+
+  .containerFormContent>.containerLinks {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .containerSubmit>.submitBtn {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+
+  .fieldForm input {
+    padding: 0.6rem 1rem;
+  }
+
+  .registerBusinessForm>.titleRegisterBusiness {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Móviles muy pequeños */
+@media screen and (max-width: 360px) {
+  .registerBusinessForm>.containerFormContent {
+    padding: 1rem 0.5rem;
+  }
+
+  .fieldForm input {
+    padding: 0.5rem 0.8rem;
+  }
+
+  .containerSubmit>.submitBtn {
+    padding: 0.6rem 0.8rem;
+    min-height: 45px;
+  }
+}
+
+/* Laptops y escritorios grandes */
+@media screen and (min-width: 1200px) {
+  .registerBusinessForm>.containerFormContent {
+    max-width: 1200px;
+    padding: 4rem 3rem;
+  }
+
+  .containerFieldForm>.containerSVG {
+    left: -60px;
+  }
+}
+
+/* Orientación horizontal en móviles */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .containerRegisterBusiness {
+    padding: 0.25rem;
+  }
+
+  .registerBusinessForm>.containerFormContent {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .registerBusinessForm>.titleRegisterBusiness {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .containerSubmit>.submitBtn {
+    padding: 0.6rem 1rem;
+  }
+}

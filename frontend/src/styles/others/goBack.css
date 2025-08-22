@@ -1,0 +1,42 @@
+.goBack {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  z-index: 10;
+}
+
+.goBackSVG {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.75rem 1.25rem;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.4s ease;
+  font-size: 0.95rem;
+}
+
+.goBackSVG svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  fill: none;
+  transition: transform 0.3s ease;
+}
+
+.goBackSVG:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.goBackSVG:hover svg {
+  transform: translateX(-2px);
+}
