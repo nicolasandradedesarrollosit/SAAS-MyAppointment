@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import '../../../styles/business/businessHomePage/BusinessSectionPayment.css';
+import '../../../styles/business/businessHomePage/businessSectionPayment.css';
 
 function SectionPayments() {
 
