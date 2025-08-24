@@ -1,3 +1,7 @@
+////////////////////////
+// Hace la conexion con la BD
+////////////////////////
+
 import pkg from 'pg';
 const { Pool } = pkg;
 

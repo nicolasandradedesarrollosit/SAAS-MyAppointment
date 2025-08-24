@@ -1,0 +1,8 @@
+
+////////////////////////
+// Conecta con la BD mock
+////////////////////////
+
+export const pool = {
+  query: jest.fn()
+};
