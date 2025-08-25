@@ -1,11 +1,15 @@
 import { React, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import GoBack from '../../components/others/GoBack.jsx';
 import '../../styles/business/businessRegisterPage/businessRegisterPage.css';
+
 
 function BusinessRegisterPage() {
   const [errors, setErrors] = useState({});
   const [successes, setSuccesses] = useState({});
+  const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const navigate = useNavigate();
 
   const messages = [
     {
@@ -107,35 +111,59 @@ function BusinessRegisterPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    const fd = new FormData(form);
 
-    const formData = new FormData(e.target);
     let allValid = true;
-
     fields.forEach(field => {
-      const input = document.getElementById(field.id);
-      const value = input.value;
-
-      if (!field.regex.test(value)) {
-        allValid = false;
-        setErrors((prev) => ({ ...prev, [field.name]: true }));
-      } else {
-        setErrors((prev) => ({ ...prev, [field.name]: false }));
-      }
+      const input = form.elements[field.id] || form.elements[field.name];
+      const ok = field.regex.test(input?.value ?? '');
+      setErrors(prev => ({ ...prev, [field.name]: !ok }));
+      if (!ok) allValid = false;
     });
+    if (!allValid) return;
 
-    if (allValid) {
-      e.submit();
+    const payload = {
+      name: fd.get('name')?.toString().trim() ?? '',
+      email: fd.get('email')?.toString().trim() ?? '',
+      phone: fd.get('phone')?.toString().trim() ?? '',
+      address: fd.get('address')?.toString().trim() ?? '',
+      category: fd.get('category')?.toString().trim() ?? '',
+      password: (fd.get('password') ?? '').toString()
+    };
+
+    crearNegocio(payload);
+  };
+
+  const crearNegocio = async (payload) => {
+    try {
+      const resp = await fetch('http://localhost:4000/api/business', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!resp.ok) throw new Error('Error en la solicitud');
+      setSuccess(true);
+      setError(false);
+      setTimeout(() => navigate('/business/login'), 1500);
+    } catch (err) {
+      console.error('Fallo de red o CORS:', err);
+      setSuccess(false);
+      setError(true);
     }
   };
 
   return (
     <>
       <section className='containerRegisterBusiness'>
+
         <GoBack dominio='/register' />
         <div className='registerBusinessForm'>
           <h2 className='titleRegisterBusiness'>
             Regístrate como Negocio
           </h2>
+          <div className={error ? 'activeError fadeInUp' : 'inactiveError'}>Revise alguno de los campos por favor...</div>
+          <div className={success ? 'activeSuccess fadeInUp' : 'inactiveSuccess'}>El registro se hizo con exito!</div>
           <form className='containerFormContent' onSubmit={handleSubmit}>
             <div className='containerFieldForm'>
               <div className='containerSVG'>
@@ -151,7 +179,7 @@ function BusinessRegisterPage() {
                   onBlur={eliminateSuccess}
                   type='text'
                   id='businessName'
-                  name='businessName'
+                  name='name'
                   placeholder=''
                 />
                 <label htmlFor='businessName'>Nombre del Negocio</label>
@@ -177,7 +205,7 @@ function BusinessRegisterPage() {
                   onBlur={eliminateSuccess}
                   type='email'
                   id='businessEmail'
-                  name='businessEmail'
+                  name='email'
                   placeholder=''
                 />
                 <label htmlFor='businessEmail'>Correo Electrónico</label>
@@ -202,7 +230,7 @@ function BusinessRegisterPage() {
                   onBlur={eliminateSuccess}
                   type='tel'
                   id='businessPhone'
-                  name='businessPhone'
+                  name='phone'
                   placeholder=''
                 />
                 <label htmlFor='businessPhone'>Teléfono</label>
@@ -228,7 +256,7 @@ function BusinessRegisterPage() {
                   onBlur={eliminateSuccess}
                   type='text'
                   id='businessAddress'
-                  name='businessAddress'
+                  name='address'
                   placeholder=''
                 />
                 <label htmlFor='businessAddress'>Dirección</label>
@@ -254,7 +282,7 @@ function BusinessRegisterPage() {
                   onBlur={eliminateSuccess}
                   type="text"
                   id='businessCategory'
-                  name='businessCategory'
+                  name='category'
                   placeholder=''
                 />
                 <label htmlFor='businessCategory'>Categoría del Negocio</label>
@@ -281,7 +309,7 @@ function BusinessRegisterPage() {
                   onBlur={eliminateSuccess}
                   type="password"
                   id='passwordBusiness'
-                  name='passwordBusiness'
+                  name='password'
                   placeholder=''
                 />
                 <label htmlFor="passwordBusiness">Contraseña</label>
@@ -313,6 +341,6 @@ function BusinessRegisterPage() {
       </section >
     </>
   )
-}
+};
 
 export default BusinessRegisterPage;

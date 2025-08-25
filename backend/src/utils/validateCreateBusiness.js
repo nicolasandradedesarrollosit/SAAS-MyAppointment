@@ -32,5 +32,6 @@ export function validateCreate(body = {}) {
     errors.password = 'La contraseña debe tener al menos 8 caracteres, 1 mayúscula, 1 minúscula y 1 número.';
   }
 
-  return Object.keys(errors).length ? errors : null;
+  if (Object.keys(errors).length) return { ok: false, errors };
+  return { ok: true, value: fields };
 }

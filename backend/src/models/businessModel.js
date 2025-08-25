@@ -7,16 +7,19 @@ import { normalizeEmail } from '../utils/normalizeEmail.js';
 ////////////////////////
 
 export async function createBusiness({ name, email, address, phone, category, password }) {
-    const normalizedEmail = normalizeEmail(email);
-    const salt = await bcrypt.genSalt(Number(process.env.SALT_ROUNDS));
+    if (Array.isArray(password)) password = password[0];
+    password = String(password);
+
+    const normalizedEmail = normalizeEmail(String(email));
+    const saltRounds = Number.parseInt(process.env.SALT_ROUNDS ?? '10', 10);
+    const salt = await bcrypt.genSalt(Number.isFinite(saltRounds) ? saltRounds : 10);
     const password_hash = await bcrypt.hash(password, salt);
 
     const sql = `
     INSERT INTO business (name, email, phone, address, category, password)
-    VALUES($1, $2, $3, $4, $5, $6)
+    VALUES ($1, $2, $3, $4, $5, $6)
     RETURNING id, name, email, phone, address, category, created_at;
-    `;
-
+  `;
     const params = [name, normalizedEmail, phone, address, category, password_hash];
     const { rows } = await pool.query(sql, params);
     return rows[0];

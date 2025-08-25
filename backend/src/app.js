@@ -12,7 +12,4 @@ app.use(express.json());
 
 app.use('/api', businessRoutes);
 
-// health-check opcional
-app.get('/health', (_req, res) => res.json({ ok: true, mensaje: 'API OK' }));
-
 export default app;

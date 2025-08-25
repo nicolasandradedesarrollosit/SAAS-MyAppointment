@@ -13,19 +13,23 @@ import { validateCreate } from '../utils/validateCreateBusiness.js';
 
 export async function postCreateBusiness(req, res) {
   try {
-    const errors = validateCreate(req.body);
-    if (errors) {
-      return res.status(400).json({ ok: false, errors });
+    const result = validateCreate(req.body);
+
+    if (!result.ok) {
+      return res.status(400).json({ ok: false, errors: result.errors });
     }
-    const created = await createBusiness(req.body);
-    return res.status(201).json({ ok: true, data: created })
 
-  }
-  catch (err) {
-    console.error('Error al crear negocio: ', err);
-    return res.status(500).json({ ok: false, error: 'Error interno del servidor.' })
-  }
+    // usar SIEMPRE el valor normalizado
+    const created = await createBusiness(result.value);
 
+    return res.status(201).json({ ok: true, data: created });
+  } catch (err) {
+    if (err.code === '23505') {
+      return res.status(409).json({ ok: false, message: 'Email ya registrado' });
+    }
+    console.error('Error al crear negocio:', err);
+    return res.status(500).json({ ok: false, error: 'Error interno del servidor.' });
+  }
 }
 
 ////////////////////////
