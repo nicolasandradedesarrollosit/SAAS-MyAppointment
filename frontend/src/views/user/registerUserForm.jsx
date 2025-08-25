@@ -1,10 +1,10 @@
 import { React, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import GoBack from '../../components/others/GoBack.jsx';
-import '../../styles/business/businessRegisterPage/businessRegisterPage.css';
+import '../../styles/user/userRegisterPage/userRegisterForm.css';
 
 
-function BusinessRegisterPage() {
+function UserRegisterForm() {
   const [errors, setErrors] = useState({});
   const [successes, setSuccesses] = useState({});
   const [error, setError] = useState(false);
@@ -14,8 +14,8 @@ function BusinessRegisterPage() {
   const messages = [
     {
       name: 'name',
-      error: 'El nombre del negocio es obligatorio.',
-      success: 'El nombre del negocio es válido.'
+      error: 'El nombre es obligatorio.',
+      success: 'El nombre es válido.'
     },
     {
       name: 'email',
@@ -33,9 +33,9 @@ function BusinessRegisterPage() {
       success: 'La dirección es válida.'
     },
     {
-      name: 'category',
-      error: 'La categoría del negocio es obligatoria.',
-      success: 'La categoría del negocio es válida.'
+      name: 'dateBirth',
+      error: 'La fecha de nacimiento es obligatoria',
+      success: 'La fecha de nacimiento es válida.'
     },
     {
       name: 'password',
@@ -46,32 +46,32 @@ function BusinessRegisterPage() {
 
   const fields = [
     {
-      id: 'businessName',
+      id: 'clientName',
       name: 'name',
       regex: /.+/
     },
     {
-      id: 'businessEmail',
+      id: 'clientEmail',
       name: 'email',
       regex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     },
     {
-      id: 'businessPhone',
+      id: 'clientPhone',
       name: 'phone',
       regex: /^\d{7,15}$/
     },
     {
-      id: 'businessAddress',
+      id: 'clientAddress',
       name: 'address',
       regex: /.+/
     },
     {
-      id: 'businessCategory',
-      name: 'category',
-      regex: /.+/
+      id: 'clientDateBirth',
+      name: 'dateBirth',
+      regex: /^(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/
     },
     {
-      id: 'passwordBusiness',
+      id: 'passwordClient',
       name: 'password',
       regex: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/
     }
@@ -128,7 +128,7 @@ function BusinessRegisterPage() {
       email: fd.get('email')?.toString().trim() ?? '',
       phone: fd.get('phone')?.toString().trim() ?? '',
       address: fd.get('address')?.toString().trim() ?? '',
-      category: fd.get('category')?.toString().trim() ?? '',
+      dateBirth: fd.get('dateBirth') ?? '',
       password: (fd.get('password') ?? '').toString()
     };
 
@@ -137,7 +137,7 @@ function BusinessRegisterPage() {
 
   const crearNegocio = async (payload) => {
     try {
-      const resp = await fetch('http://localhost:4000/api/business', {
+      const resp = await fetch('http://localhost:4000/api/Client', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -145,7 +145,7 @@ function BusinessRegisterPage() {
       if (!resp.ok) throw new Error('Error en la solicitud');
       setSuccess(true);
       setError(false);
-      setTimeout(() => navigate('/login/business'), 2500);
+      setTimeout(() => navigate('/login/Client'), 2500);
     } catch (err) {
       console.error('Fallo de red o CORS:', err);
       setSuccess(false);
@@ -155,12 +155,12 @@ function BusinessRegisterPage() {
 
   return (
     <>
-      <section className='containerRegisterBusiness'>
+      <section className='containerRegisterClient'>
 
         <GoBack dominio='/register' />
-        <div className='registerBusinessForm'>
-          <h2 className='titleRegisterBusiness'>
-            Regístrate como Negocio
+        <div className='registerClientForm'>
+          <h2 className='titleRegisterClient'>
+            Regístrate como Cliente
           </h2>
           <div className={error ? 'activeError fadeInUp' : 'inactiveError'}>Revise alguno de los campos por favor...</div>
           <div className={success ? 'activeSuccess fadeInUp' : 'inactiveSuccess'}>El registro se hizo con exito!</div>
@@ -178,11 +178,11 @@ function BusinessRegisterPage() {
                   onChange={validateField}
                   onBlur={eliminateSuccess}
                   type='text'
-                  id='businessName'
+                  id='clientName'
                   name='name'
                   placeholder=''
                 />
-                <label htmlFor='businessName'>Nombre del Negocio</label>
+                <label htmlFor='clientName'>Nombre</label>
                 <div className={`errorMessage small ${errors.name ? 'show' : ''}`}>
                   {getMessageByName('name')?.error}
                 </div>
@@ -204,11 +204,11 @@ function BusinessRegisterPage() {
                   onChange={validateField}
                   onBlur={eliminateSuccess}
                   type='email'
-                  id='businessEmail'
+                  id='clientEmail'
                   name='email'
                   placeholder=''
                 />
-                <label htmlFor='businessEmail'>Correo Electrónico</label>
+                <label htmlFor='clientEmail'>Correo Electrónico</label>
                 <div className={`errorMessage small ${errors.email ? 'show' : ''}`}>
                   {getMessageByName('email')?.error}
                 </div>
@@ -229,11 +229,11 @@ function BusinessRegisterPage() {
                   onChange={validateField}
                   onBlur={eliminateSuccess}
                   type='tel'
-                  id='businessPhone'
+                  id='clientPhone'
                   name='phone'
                   placeholder=''
                 />
-                <label htmlFor='businessPhone'>Teléfono</label>
+                <label htmlFor='clientPhone'>Teléfono</label>
                 <div className={`errorMessage small ${errors.phone ? 'show' : ''}`}>
                   {getMessageByName('phone')?.error}
                 </div>
@@ -255,11 +255,11 @@ function BusinessRegisterPage() {
                   onChange={validateField}
                   onBlur={eliminateSuccess}
                   type='text'
-                  id='businessAddress'
+                  id='clientAddress'
                   name='address'
                   placeholder=''
                 />
-                <label htmlFor='businessAddress'>Dirección</label>
+                <label htmlFor='clientAddress'>Dirección</label>
                 <div className={`errorMessage small ${errors.address ? 'show' : ''}`}>
                   {getMessageByName('address')?.error}
                 </div>
@@ -280,17 +280,17 @@ function BusinessRegisterPage() {
                 <input
                   onChange={validateField}
                   onBlur={eliminateSuccess}
-                  type="text"
-                  id='businessCategory'
-                  name='category'
+                  type="date"
+                  id='clientDateBirth'
+                  name='dateBirth'
                   placeholder=''
                 />
-                <label htmlFor='businessCategory'>Categoría del Negocio</label>
-                <div className={`errorMessage small ${errors.category ? 'show' : ''}`}>
-                  {getMessageByName('category')?.error}
+                <label htmlFor='clientDateBirth'>Fecha de nacimiento</label>
+                <div className={`errorMessage small ${errors.dateBirth ? 'show' : ''}`}>
+                  {getMessageByName('dateBirth')?.error}
                 </div>
-                <div className={`successMessage small ${successes.category ? 'show' : ''}`}>
-                  {getMessageByName('category')?.success}
+                <div className={`successMessage small ${successes.dateBirth ? 'show' : ''}`}>
+                  {getMessageByName('dateBirth')?.success}
                 </div>
               </div>
             </div>
@@ -308,11 +308,11 @@ function BusinessRegisterPage() {
                   onChange={validateField}
                   onBlur={eliminateSuccess}
                   type="password"
-                  id='passwordBusiness'
+                  id='passwordClient'
                   name='password'
                   placeholder=''
                 />
-                <label htmlFor="passwordBusiness">Contraseña</label>
+                <label htmlFor="passwordClient">Contraseña</label>
                 <div className={`errorMessage small ${errors.password ? 'show' : ''}`}>
                   {getMessageByName('password')?.error}
                 </div>
@@ -323,13 +323,13 @@ function BusinessRegisterPage() {
             </div>
 
             <div className='containerLinks'>
-              <Link to='/login/business' className='link'>
+              <Link to='/login/user' className='link'>
                 Ya tengo una cuenta
               </Link>
-              <Link to='/register/user' className='link'>
-                Registrarme como Usuario
+              <Link to='/register/business' className='link'>
+                Registrarme como Negocio
               </Link>
-              <Link to={'/forgot-password/business'} className='link'>
+              <Link to={'/forgot-password/user'} className='link'>
                 ¿Olvidaste tu contraseña?
               </Link>
             </div>
@@ -343,4 +343,4 @@ function BusinessRegisterPage() {
   )
 };
 
-export default BusinessRegisterPage;
+export default UserRegisterForm;

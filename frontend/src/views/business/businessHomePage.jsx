@@ -21,7 +21,6 @@ function BusinessHomePage() {
           <SectionPayments />
           <SectionOpinions />
           <SectionBar />
-          {/* <SectionFAQ /> */}
         </main>
         <section className='containerFooterBusinessPage'>
           <Footer />
