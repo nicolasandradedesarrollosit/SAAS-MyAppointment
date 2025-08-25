@@ -1,21 +1,22 @@
 .containerUserHomePage {
   display: flex;
   flex-direction: column;
-  width: auto;
-  height: auto;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .containerUserHomePage>.containerUserHomePageHero {
   display: flex;
   flex-direction: column;
-  height: auto;
-  width: auto;
+  min-height: 100vh;
+  width: 100%;
   justify-content: center;
   align-items: center;
   animation: gradientShift 8s ease infinite;
   background: linear-gradient(-45deg, #000000, #120018, #1f0030, #2a0040, #000000);
   background-size: 400% 400%;
-
+  padding: 0;
 }
 
 .containerUserHomePage>.containerUserHomeMain {
@@ -35,20 +36,22 @@
     0% 100%,
     100% 100%,
     50% 50%;
-
   animation: orbitalShift 18s ease-in-out infinite, pulseRings 12s ease-in-out infinite;
   will-change: background-position, background-size;
   isolation: isolate;
+  min-height: auto;
+  padding: 0;
 }
 
 .containerUserHomePage>.containerUserHomeFooter {
   display: flex;
   flex-direction: column;
-  height: auto;
-  width: auto;
+  min-height: auto;
+  width: 100%;
   animation: gradientShift 8s ease infinite;
   background: linear-gradient(-45deg, #000000, #120018, #1f0030, #2a0040, #000000);
   background-size: 400% 400%;
+  padding: 0;
 }
 
 @keyframes pulseRings {
@@ -102,7 +105,6 @@
   }
 }
 
-
 @keyframes gradientShift {
   0% {
     background-position: 0% 50%;
@@ -117,20 +119,7 @@
   }
 }
 
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
+/* Scrollbar Styles */
 ::-webkit-scrollbar {
   width: 12px;
   height: 12px;
@@ -191,7 +180,7 @@ html {
   box-shadow: 0 0 10px rgba(58, 0, 110, 0.3);
 }
 
-
+/* Scrollbar Variants */
 .scrollbar-purple-glass::-webkit-scrollbar {
   width: 14px;
   height: 14px;
@@ -254,6 +243,25 @@ html {
   }
 }
 
+/* Media Queries */
+@media (max-width: 1200px) {
+
+  .containerUserHomePage>.containerUserHomePageHero,
+  .containerUserHomePage>.containerUserHomeMain,
+  .containerUserHomePage>.containerUserHomeFooter {
+    padding: 0;
+  }
+}
+
+@media (max-width: 968px) {
+  .containerUserHomePage {
+    overflow-x: hidden;
+  }
+
+  .containerUserHomePage>.containerUserHomePageHero {
+    min-height: auto;
+  }
+}
 
 @media (max-width: 768px) {
   ::-webkit-scrollbar {
@@ -290,6 +298,7 @@ html {
   }
 }
 
+/* Accessibility */
 @media (prefers-reduced-motion: no-preference) {
   ::-webkit-scrollbar-thumb {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -309,6 +318,15 @@ html {
     animation: none;
     background: linear-gradient(135deg, rgba(58, 0, 110, 0.7) 0%, rgba(26, 0, 51, 0.8) 100%);
   }
+
+  .containerUserHomePage>.containerUserHomeMain {
+    animation: none;
+  }
+
+  .containerUserHomePage>.containerUserHomePageHero,
+  .containerUserHomePage>.containerUserHomeFooter {
+    animation: none;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -321,8 +339,20 @@ html {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media (max-width: 480px) {
   .containerUserHomePage>.containerUserHomeMain {
-    animation: none;
+    background-size: 300% 300%, 300% 300%, 300% 300%, 300% 300%, 300% 300%;
+  }
+}
+
+@media (prefers-contrast: high) {
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(0, 0, 0, 0.8);
   }
 }

@@ -4,7 +4,7 @@ import SectionStats from '../../components/user/userHomePage/SectionStats';
 import SectionFeatures from '../../components/user/userHomePage/SectionFeatures';
 import SectionFAQ from '../../components/user/userHomePage/SectionFAQ';
 import Footer from '../../components/others/Footer';
-import '../../styles/user/userHomePage/userHomePage.css'
+import '../../styles/user/userHomePage/userHomePage.css';
 
 
 

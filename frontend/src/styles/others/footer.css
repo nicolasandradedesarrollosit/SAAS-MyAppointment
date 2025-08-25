@@ -1,7 +1,7 @@
 .containerUserHomeFooter {
   display: flex;
   flex-direction: column;
-  height: 45vh;
+  height: auto;
   width: 100%;
   color: #FFF;
   font-size: 1.1rem;
@@ -12,8 +12,8 @@
 .containerUserHomeFooter>.userHomeFooter {
   display: flex;
   flex-direction: row;
-  width: 80%;
-  height: 30vh;
+  width: 1200px;
+  height: auto;
   justify-content: space-between;
   align-items: center;
   border-radius: 1rem;
@@ -27,7 +27,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 25%;
+  width: 400px;
   justify-content: center;
   text-align: left;
   margin-left: 10rem;
@@ -42,7 +42,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 25%;
+  width: 400px;
   justify-content: center;
   text-align: right;
 }
@@ -52,7 +52,7 @@
 }
 
 .containerUserHomeFooter>.containerPayment {
-  height: 10vh;
+  height: 150px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -74,7 +74,7 @@ a>svg:hover {
 }
 
 .containerUserHomeFooter>.containerRigths {
-  height: 3vh;
+  height: 50px;
   width: 100%;
   text-align: center;
   align-items: center;
@@ -90,4 +90,44 @@ a>svg:hover {
 
 .containerPayment>svg:hover {
   scale: 1.1;
+}
+
+@media (max-width: 1024px) {
+  .containerUserHomeFooter>.userHomeFooter {
+    width: 700px;
+  }
+
+  a>svg {
+    height: 35px;
+    width: 35px;
+    transition: all ease 0.4s;
+    cursor: pointer;
+  }
+
+  .containerFooterLinks>.footerLink {
+    font-size: 0.8rem;
+  }
+
+  .containerPayment>svg {
+    height: 35px;
+    width: 35px;
+    transition: all ease 0.4s;
+    cursor: pointer;
+  }
+
+  .containerUserHomeFooter>.containerRigths {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .containerUserHomeFooter>.userHomeFooter {
+    width: 600px;
+  }
+}
+
+@media (max-width: 480px) {
+  .containerUserHomeFooter>.userHomeFooter {
+    width: 300px;
+  }
 }

@@ -1,22 +1,28 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
+  "type": "module",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest --runInBand"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "devDependencies": {
+  "jest": {
+    "testEnvironment": "node",
+    "verbose": true,
+    "clearMocks": true
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
-    "install": "^0.13.0",
-    "nodemon": "^3.1.10",
-    "npm": "^11.5.2",
     "pg": "^8.16.3"
+  },
+  "devDependencies": {
+    "jest": "^30.0.5",
+    "nodemon": "^3.1.10",
+    "supertest": "^7.1.4"
   }
 }

@@ -1,7 +1,7 @@
 .containerSectionBar {
   display: flex;
   flex-direction: column;
-  height: 35vh;
+  height: auto;
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -9,7 +9,7 @@
   background: linear-gradient(135deg, #fff 0%, #00b4ff 50%, #00ffcc 100%);
   position: relative;
   overflow: hidden;
-  padding: 2rem;
+  padding: 2rem 0;
 }
 
 .containerSectionBar::before {
@@ -38,7 +38,7 @@
 }
 
 .containerText>.titleBar {
-  font-size: 2.8rem;
+  font-size: clamp(1.8rem, 4vw, 2.3rem);
   font-weight: 800;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   line-height: 1.2;
@@ -46,7 +46,7 @@
 }
 
 .containerText>.subtitleBar {
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 2vw, 1.3rem);
   opacity: 0.9;
   font-weight: 400;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -108,17 +108,16 @@
 @media (max-width: 1024px) {
   .containerSectionBar {
     height: auto;
-    min-height: 35vh;
     gap: 2.5rem;
     padding: 2.5rem 1.5rem;
   }
 
   .containerText>.titleBar {
-    font-size: 2.4rem;
+    font-size: clamp(2rem, 3.5vw, 2.4rem);
   }
 
   .containerText>.subtitleBar {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
   }
 
   .containerButton>.linkButton1,
@@ -130,8 +129,6 @@
 
 @media (max-width: 768px) {
   .containerSectionBar {
-    height: auto;
-    min-height: 40vh;
     gap: 2rem;
     padding: 3rem 1rem;
   }
@@ -141,12 +138,12 @@
   }
 
   .containerText>.titleBar {
-    font-size: 2rem;
+    font-size: clamp(1.8rem, 3.5vw, 2rem);
     line-height: 1.3;
   }
 
   .containerText>.subtitleBar {
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
     line-height: 1.5;
   }
 
@@ -167,8 +164,6 @@
 
 @media (max-width: 480px) {
   .containerSectionBar {
-    height: auto;
-    min-height: 45vh;
     gap: 1.5rem;
     padding: 2.5rem 0.8rem;
   }
@@ -178,12 +173,12 @@
   }
 
   .containerText>.titleBar {
-    font-size: 1.7rem;
+    font-size: clamp(1.5rem, 3.5vw, 1.7rem);
     line-height: 1.3;
   }
 
   .containerText>.subtitleBar {
-    font-size: 1rem;
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
     line-height: 1.5;
   }
 
@@ -197,40 +192,5 @@
     padding: 1.1rem 1.8rem;
     font-size: 1rem;
     border-radius: 0.8rem;
-  }
-}
-
-@media (max-width: 320px) {
-  .containerSectionBar {
-    height: auto;
-    min-height: 50vh;
-    gap: 1.2rem;
-    padding: 2rem 0.5rem;
-  }
-
-  .containerSectionBar>.containerText {
-    gap: 0.8rem;
-  }
-
-  .containerText>.titleBar {
-    font-size: 1.5rem;
-    line-height: 1.3;
-  }
-
-  .containerText>.subtitleBar {
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
-
-  .containerSectionBar>.containerButton {
-    gap: 1rem;
-    max-width: 280px;
-  }
-
-  .containerButton>.linkButton1,
-  .containerButton>.linkButton2 {
-    padding: 1rem 1.5rem;
-    font-size: 0.95rem;
-    border-radius: 0.7rem;
   }
 }
