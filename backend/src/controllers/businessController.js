@@ -19,7 +19,6 @@ export async function postCreateBusiness(req, res) {
       return res.status(400).json({ ok: false, errors: result.errors });
     }
 
-    // usar SIEMPRE el valor normalizado
     const created = await createBusiness(result.value);
 
     return res.status(201).json({ ok: true, data: created });

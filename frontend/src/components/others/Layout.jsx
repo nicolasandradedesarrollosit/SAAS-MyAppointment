@@ -4,6 +4,7 @@ import UserHomePage from '../../views/user/userHomePage.jsx';
 import BusinessHomePage from '../../views/business/businessHomePage.jsx'
 import UserRegisterPage from '../../views/user/registerUserPage.jsx';
 import BusinessRegisterPage from '../../views/business/businessRegisterPage.jsx';
+import UserRegisterForm from '../../views/user/registerUserForm.jsx';
 
 function Layout() {
   return (
@@ -14,6 +15,7 @@ function Layout() {
           <Route path='/business' element={<BusinessHomePage />} />
           <Route path='/register' element={<UserRegisterPage />} />
           <Route path='/register/business' element={<BusinessRegisterPage />} />
+          <Route path='/register/user' element={<UserRegisterForm />} />
         </Routes>
       </main>
     </>

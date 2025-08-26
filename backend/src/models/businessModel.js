@@ -50,7 +50,7 @@ export async function getBusinessByEmail(email) {
 }
 
 ////////////////////////
-// hace un listado de mails, que va siendo filtrado por un buscador, con un "ver mas" hecho por limit y offset los cuales son todos pasados por parametros
+// hace un listado de businesses, que va siendo filtrado por un buscador, con un "ver mas" hecho por limit y offset los cuales son todos pasados por parametros
 ////////////////////////
 
 export async function listBusiness({ limit = 20, offset, search = '' } = {}) {
@@ -90,13 +90,13 @@ export async function updateBusinessPartial(id, data) {
         return await getBusinessById(id);
     }
 
+    values.push(id);
     const sql = `
         UPDATE business
         SET ${fields.join(', ')}
         WHERE id = $${idx}
         RETURNING id, name, email, phone, address, category, created_at
     `;
-    values.push(id);
 
     const { rows } = await pool.query(sql, values);
     return rows[0];
