@@ -128,7 +128,7 @@ function UserRegisterForm() {
       email: fd.get('email')?.toString().trim() ?? '',
       phone: fd.get('phone')?.toString().trim() ?? '',
       address: fd.get('address')?.toString().trim() ?? '',
-      birthDate: (fd.get('dateBirth') ?? '').toString().trim(),
+      date_birth: (fd.get('dateBirth') ?? '').toString().trim(),
       password: (fd.get('password') ?? '').toString()
     };
 
