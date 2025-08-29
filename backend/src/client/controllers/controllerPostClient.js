@@ -4,7 +4,7 @@ export default async function createClientController(req, res) {
   try {
     const result = validateFields(req.body);
 
-    if (!result.ok) return res.status(400).json({ ok: false, errors: result.errors })
+    if (!result.ok) return res.status(400).json({ ok: false, errors: result.errors });
 
     const created = await createClientModel(result.value);
     return res.status(201).json({ ok: true, data: created });
@@ -30,9 +30,7 @@ function validateFields(result = {}) {
     .filter(([, v]) => !v.trim())
     .map(([k]) => k);
 
-  if (faltan.length) {
-    return { faltan };
-  }
+  if (faltan.length) return { ok: false, faltan };
 
   const errors = {};
 

@@ -287,7 +287,8 @@
 }
 
 .containerLinks>.link:hover {
-  color: #667eea;
+  opacity: 0.7;
+  transform: translateY(-5px);
 }
 
 .containerFormContent>.containerSubmit {

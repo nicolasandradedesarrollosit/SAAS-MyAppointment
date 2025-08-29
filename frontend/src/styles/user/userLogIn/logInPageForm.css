@@ -50,7 +50,7 @@
   display: none;
 }
 
-.LogInUserBox .activeError {
+.containerLogInUser .activeError {
   height: 200px;
   width: 400px;
   margin: 20px auto;
@@ -245,7 +245,7 @@
 
 .fieldForm label {
   font-size: clamp(1rem, 2.5vw, 1.2rem);
-  color: #74b9ff;
+  color: #2c3e50;
   top: 10px;
   left: 20px;
   position: absolute;
@@ -303,8 +303,10 @@
 }
 
 .containerLinks>.link:hover {
-  color: #a6e4fe;
+  opacity: 0.7;
+  transform: translateY(-5px);
 }
+
 
 .formLogInUser>.containerSubmit {
   display: flex;

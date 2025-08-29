@@ -1,9 +1,9 @@
 import { React, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import '../../styles/user/userLogIn/logInPageUser.css';
+import '../../styles/user/userLogIn/logInPageForm.css';
 import GoBack from '../../components/others/GoBack';
 
-function LogInPageUser() {
+function LogInPageBusiness() {
   const [errors, setErrors] = useState({});
   const [successes, setSuccesses] = useState({});
   const [error, setError] = useState(false);
@@ -12,11 +12,11 @@ function LogInPageUser() {
 
   const loginData = [
     {
-      id: 'emailClient',
+      id: 'emailBusiness',
       regex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     },
     {
-      id: 'passwordClient',
+      id: 'passwordBusiness',
       regex: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/
     }
   ];
@@ -87,7 +87,7 @@ function LogInPageUser() {
 
   const logInUser = async (payload) => {
     try {
-      const resp = await fetch('http://localhost:4000/api/client/:email', {
+      const resp = await fetch('http://localhost:4000/api/business/:email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -98,7 +98,7 @@ function LogInPageUser() {
       localStorage.setItem('token', data.token);
       setSuccess(true);
       setError(false);
-      setTimeout(() => navigate('/home/user'), 2500);
+      setTimeout(() => navigate('/home/business'), 2500);
     } catch (err) {
       console.error('Fallo de red o CORS:', err);
       setSuccess(false);
@@ -112,7 +112,7 @@ function LogInPageUser() {
       <section className='containerLogInUser'>
         <GoBack dominio={'/login'} />
         <div className='logInUserBox'>
-          <h2 className='titleLogIn'>Iniciar sesion como Cliente</h2>
+          <h2 className='titleLogIn'>Iniciar sesion como Negocio</h2>
           <div className={error ? 'activeError fadeInUp' : 'inactiveError'}>Revisa alguno de los campos...</div>
           <div className={success ? 'activeSuccess fadeInUp' : 'inactiveSuccess'}>Iniciaste sesion con exito!</div>
           <form action="" className='formLogInUser' onSubmit={handleSubmit}>
@@ -128,11 +128,11 @@ function LogInPageUser() {
                   onChange={validateField}
                   onBlur={eliminateSuccess}
                   type='email'
-                  id='emailClient'
+                  id='emailBusiness'
                   name='email'
                   placeholder=''
                 />
-                <label htmlFor='clientEmail'>Correo Electrónico</label>
+                <label htmlFor='businessEmail'>Correo Electrónico</label>
                 <div className={`errorMessage small ${errors.email ? 'show' : ''}`}>
                   {getMessageByName('email')?.error}
                 </div>
@@ -154,11 +154,11 @@ function LogInPageUser() {
                   onChange={validateField}
                   onBlur={eliminateSuccess}
                   type="password"
-                  id='passwordClient'
+                  id='passwordBusiness'
                   name='password'
                   placeholder=''
                 />
-                <label htmlFor="passwordClient">Contraseña</label>
+                <label htmlFor="passwordBusiness">Contraseña</label>
                 <div className={`errorMessage small ${errors.password ? 'show' : ''}`}>
                   {getMessageByName('password')?.error}
                 </div>
@@ -168,10 +168,10 @@ function LogInPageUser() {
               </div>
             </div>
             <div className='containerLinks'>
-              <Link to='/register/user' className='link'>
-                Registrarme como cliente
+              <Link to='/register/business' className='link'>
+                Registrarme como negocio
               </Link>
-              <Link to={'/forgot-password/user'} className='link'>
+              <Link to={'/forgot-password/business'} className='link'>
                 ¿Olvidaste tu contraseña?
               </Link>
             </div>
@@ -185,4 +185,4 @@ function LogInPageUser() {
   );
 }
 
-export default LogInPageUser;
+export default LogInPageBusiness;
