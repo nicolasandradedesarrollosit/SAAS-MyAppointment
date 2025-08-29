@@ -5,11 +5,13 @@
 import express from 'express';
 import cors from 'cors';
 import businessRoutes from './routes/businessRoute.js';
+import clientRoutes from './routes/clientRoute.js';
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 app.use('/api', businessRoutes);
+app.use('/api', clientRoutes);
 
 export default app;

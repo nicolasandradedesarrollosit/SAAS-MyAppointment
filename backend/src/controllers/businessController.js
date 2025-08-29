@@ -3,7 +3,8 @@ import {
   getBusinessById,
   listBusiness,
   updateBusinessPartial,
-  deleteBusiness
+  deleteBusiness,
+  verifyCredentials
 } from '../models/businessModel.js';
 import { validateCreate } from '../utils/validateCreateBusiness.js';
 

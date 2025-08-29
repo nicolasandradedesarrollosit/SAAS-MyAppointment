@@ -3,9 +3,10 @@ import {
   getClientById,
   listClient,
   updateClientPartial,
-  deleteClient
+  deleteClient,
+  getClientByEmail
 } from '../models/clientModel.js';
-import { validateCreate } from '../utils/validateCreateClient.js';
+import { validateCreateClient } from '../utils/validateCreateClient.js';
 
 ////////////////////////
 // Hace el asincronismo de la funcion try --> catch; retorna errores si los hay
@@ -13,19 +14,28 @@ import { validateCreate } from '../utils/validateCreateClient.js';
 
 export async function postCreateClient(req, res) {
   try {
-    const result = validateCreate(req.body);
-    if (!result.ok) {
-      return res.status(400).json({ ok: false, errors: result.errors });
-    }
-    const created = await createClient(result.value);
-    return res.status(400).json({ ok: true, data: created })
-  }
+    // Debug útil:
+    console.log('Body recibido:', req.body);
 
-  catch (err) {
-    if (err.code === '23505') {
-      return res.status(409).json({ ok: false, message: 'Email ya registrado' });
+    const r = validateCreateClient(req.body);
+    if (!r.ok) {
+      const payload = { ok: false, message: 'Validación fallida' };
+      if (r.missing?.length) payload.missing = r.missing;
+      if (r.errors && Object.keys(r.errors).length) payload.errors = r.errors;
+      return res.status(400).json(payload);
     }
-    console.log('Error al crear cliente: ', err);
+
+    // Debug: asegurate que birthDate exista acá
+    // console.log('Valores validados:', r.value);
+
+    const created = await createClient(r.value);
+    return res.status(201).json({ ok: true, data: created });
+
+  } catch (err) {
+    console.error('Error al crear cliente:', err.message, err.stack);
+    if (err?.code === '23505') {
+      return res.status(409).json({ ok: false, error: 'Email ya registrado.' });
+    }
     return res.status(500).json({ ok: false, error: 'Error interno del servidor.' });
   }
 }
@@ -37,8 +47,8 @@ export async function postCreateClient(req, res) {
 export async function getClient(req, res) {
   try {
     const { id } = req.params;
-    const client = await getClientById(id);
-    if (!business) return res.status(404).json({ ok: false, error: 'No encontrado' });
+    const client = await getClientByEmail(id);
+    if (!client) return res.status(404).json({ ok: false, error: 'No encontrado' });
     return res.json({ ok: true, data: client })
   }
   catch (err) {
@@ -67,3 +77,47 @@ export async function getClients(req, res) {
   }
 }
 
+////////////////////////
+// Hace el asincronismo de la funcion try --> catch; retorna errores si los hay
+////////////////////////
+
+export async function patchClient(req, res) {
+  try {
+    const { id } = req.params;
+    const result = validateCreate(req.body);
+    if (!result.ok) {
+      return res.status(400).json({ ok: false, errors: result.errors });
+    }
+    const updated = await updateClientPartial(id, result.value);
+    if (!updated) {
+      return res.status(404).json({ ok: false, error: 'No encontrado' });
+    }
+    return res.json({ ok: true, data: updated });
+  }
+  catch (err) {
+    if (err.code === '23505') {
+      return res.status(409).json({ ok: false, message: 'Email ya registrado' });
+    }
+    console.error('Error al actualizar cliente: ', err);
+    return res.status(500).json({ ok: false, error: 'Error interno del servidor.' });
+  }
+}
+
+////////////////////////
+// Hace el asincronismo de la funcion try --> catch; retorna errores si los hay
+////////////////////////
+
+export async function deleteClientCtrl(req, res) {
+  try {
+    const { id } = req.params;
+    const deleted = await deleteClient(id);
+    if (!deleted) {
+      return res.status(404).json({ ok: false, error: 'No encontrado' });
+    }
+    return res.json({ ok: true, data: deleted });
+  }
+  catch (err) {
+    console.error('Error al eliminar cliente: ', err);
+    return res.status(500).json({ ok: false, error: 'Error interno del servidor.' });
+  }
+}

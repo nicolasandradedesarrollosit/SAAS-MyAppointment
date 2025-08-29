@@ -1,0 +1,551 @@
+.containerLogInUser {
+  color: #2c3e50;
+  background: linear-gradient(45deg, #e0f2fe, #b3e5fc, #81d4fa, #4fc3f7, #29b6f6);
+  background-size: 300% 300%;
+  animation: gradientShift 10s ease infinite;
+  height: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  min-height: 100vh;
+}
+
+.containerLogInUser .activeSuccess {
+  height: 200px;
+  width: 400px;
+  margin: 20px auto;
+  font-size: 1.1rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  border-radius: 12px;
+  border-left: 6px solid #15803d;
+  box-shadow:
+    0 10px 25px rgba(34, 197, 94, 0.3),
+    0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  animation: fadeInScale 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.containerLogInUser .inactiveSuccess::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shine 2s infinite;
+}
+
+.containerLogInUser .inactiveSuccess {
+  display: none;
+}
+
+.LogInUserBox .activeError {
+  height: 200px;
+  width: 400px;
+  margin: 20px auto;
+  font-size: 1.1rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  border-radius: 12px;
+  border-left: 6px solid #b91c1c;
+  box-shadow:
+    0 10px 25px rgba(239, 68, 68, 0.3),
+    0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  animation: fadeInScale 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.containerLogInUser .inactiveError::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shine 2s infinite;
+}
+
+.containerLogInUser .inactiveError {
+  display: none;
+}
+
+
+
+.containerLogInUser.inactiveSuccess:hover,
+.containerLogInUser .inactiveError:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.15),
+    0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.containerLogInUser .inactiveSuccess::after {
+  content: '✓';
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.containerLogInUser .inactiveError::after {
+  content: '✕';
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.containerLogInUser::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.2) 0%, transparent 50%);
+  z-index: 0;
+  animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+
+  33% {
+    transform: translate(30px, -30px) rotate(120deg);
+  }
+
+  66% {
+    transform: translate(-20px, 20px) rotate(240deg);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.containerLogInUser>.logInUserBox {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  position: relative;
+  z-index: 1;
+  animation: fadeInScale 0.5s ease-in-out;
+}
+
+.logInUserBox>.titleLogIn {
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff, rgba(255, 255, 255, 0.8));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  width: 100%;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 0 1rem;
+}
+
+.logInUserBox>.formLogInUser {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 2rem;
+  gap: 2rem;
+  width: 100%;
+  max-width: 800px;
+  min-height: auto;
+  position: relative;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  margin: 1rem;
+}
+
+.formLogInUser>.containerFieldForm {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.containerFieldForm>.containerSVG {
+  position: absolute;
+  left: -50px;
+  top: 10px;
+  display: block;
+}
+
+.containerFieldForm>.fieldForm {
+  width: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fieldForm label {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: #74b9ff;
+  top: 10px;
+  left: 20px;
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.fieldForm input {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  border: 2px solid #dfe6e9;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  color: #2c3e50;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.fieldForm input:focus {
+  border-color: #667eea;
+  outline: none;
+}
+
+.fieldForm input:focus+label,
+.fieldForm input:not(:placeholder-shown)+label {
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  color: #667eea;
+}
+
+.formLogInUser>.containerLinks {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  width: 100%;
+  max-width: 600px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.containerLinks>.link {
+  text-decoration: none;
+  color: #2c3e50;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 500;
+  position: relative;
+  transition: all 0.6s ease;
+  text-align: center;
+}
+
+.containerLinks>.link:hover {
+  color: #a6e4fe;
+}
+
+.formLogInUser>.containerSubmit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 2rem 0;
+  gap: 1rem;
+}
+
+.containerSubmit>.submitBtn {
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  border: none;
+  background: #667eea;
+  color: #ffffff;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  max-width: 400px;
+  min-height: 50px;
+}
+
+.submitBtn:hover {
+  background: #5a67d8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+.small {
+  font-size: clamp(0.7rem, 2vw, 0.8rem);
+}
+
+.errorMessage {
+  display: none;
+  color: #e74c3c;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  text-align: center;
+}
+
+.successMessage {
+  display: none;
+  color: #28a745;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  text-align: center;
+}
+
+.show {
+  display: flex;
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(-20px);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05) translateY(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .LogInUserBox>.LogInUserBox {
+    max-width: 1200px;
+    padding: 4rem 3rem;
+  }
+
+  .containerFieldForm>.containerSVG {
+    left: -60px;
+  }
+
+  .containerLogInUser .inactiveSuccess,
+  .containerLogInUser .inactiveError {
+    max-width: 450px;
+    min-height: 210px;
+    padding: 28px;
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .containerLogInUser {
+    padding: 0.5rem;
+  }
+
+  .LogInUserBox>.LogInUserBox {
+    padding: 2rem 1rem;
+    margin: 0.5rem;
+    border-radius: 15px;
+    gap: 1.5rem;
+  }
+
+  .containerFieldForm>.containerSVG {
+    display: none;
+  }
+
+  .LogInUserBox>.containerLinks {
+    gap: 1rem;
+  }
+
+  .containerSubmit>.submitBtn {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .containerLogInUser .inactiveSuccess,
+  .containerLogInUser .inactiveError {
+    max-width: 90%;
+    min-height: 160px;
+    padding: 22px;
+    margin: 15px auto;
+    border-radius: 10px;
+  }
+
+  .containerLogInUser .inactiveSuccess::after,
+  .containerLogInUser .inactiveError::after {
+    font-size: 16px;
+    top: 10px;
+    right: 10px;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  .containerLogInUser {
+    padding: 0.25rem;
+  }
+
+  .containerLogInUser .inactiveSuccess,
+  .containerLogInUser .inactiveError {
+    max-width: 95%;
+    min-height: 140px;
+    padding: 20px;
+    margin: 12px auto;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  .LogInUserBox>.LogInUserBox {
+    padding: 1.5rem 0.75rem;
+    margin: 0.25rem;
+    border-radius: 10px;
+    gap: 1rem;
+  }
+
+  .LogInUserBox>.containerFieldForm {
+    gap: 0.5rem;
+  }
+
+  .LogInUserBox>.containerLinks {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .containerSubmit>.submitBtn {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+
+  .fieldForm input {
+    padding: 0.6rem 1rem;
+  }
+
+  .LogInUserBox>.titleLogInUser {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .LogInUserBox>.LogInUserBox {
+    padding: 1rem 0.5rem;
+  }
+
+  .containerLogInUser .inactiveSuccess,
+  .containerLogInUser .inactiveError {
+    max-width: 98%;
+    min-height: 120px;
+    padding: 16px;
+    margin: 10px auto;
+    border-radius: 6px;
+    font-size: 13px;
+    border-left-width: 4px;
+  }
+
+  .containerLogInUser .inactiveSuccess::after,
+  .containerLogInUser .inactiveError::after {
+    font-size: 12px;
+    top: 6px;
+    right: 6px;
+  }
+
+  .fieldForm input {
+    padding: 0.5rem 0.8rem;
+  }
+
+  .containerSubmit>.submitBtn {
+    padding: 0.6rem 0.8rem;
+    min-height: 45px;
+  }
+}
+
+
+
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .containerLogInUser {
+    padding: 0.25rem;
+  }
+
+  .LogInUserBox>.LogInUserBox {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .LogInUserBox>.titleLogInUser {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .containerSubmit>.submitBtn {
+    padding: 0.6rem 1rem;
+  }
+}

@@ -132,10 +132,10 @@ function BusinessRegisterPage() {
       password: (fd.get('password') ?? '').toString()
     };
 
-    crearNegocio(payload);
+    createNegocio(payload);
   };
 
-  const crearNegocio = async (payload) => {
+  const createNegocio = async (payload) => {
     try {
       const resp = await fetch('http://localhost:4000/api/business', {
         method: 'POST',
@@ -163,7 +163,7 @@ function BusinessRegisterPage() {
             Regístrate como Negocio
           </h2>
           <div className={error ? 'activeError fadeInUp' : 'inactiveError'}>Revise alguno de los campos por favor...</div>
-          <div className={success ? 'activeSuccess fadeInUp' : 'inactiveSuccess'}>El registro se hizo con exito!</div>
+          <div className={success ? 'activeSuccess fadeInUp' : 'inactiveSuccess'}>El inicio de sesion se hizo con exito!</div>
           <form className='containerFormContent' onSubmit={handleSubmit}>
             <div className='containerFieldForm'>
               <div className='containerSVG'>
@@ -328,9 +328,6 @@ function BusinessRegisterPage() {
               </Link>
               <Link to='/register/user' className='link'>
                 Registrarme como Usuario
-              </Link>
-              <Link to={'/forgot-password/business'} className='link'>
-                ¿Olvidaste tu contraseña?
               </Link>
             </div>
             <div className='containerSubmit'>

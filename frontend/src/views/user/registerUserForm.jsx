@@ -128,16 +128,16 @@ function UserRegisterForm() {
       email: fd.get('email')?.toString().trim() ?? '',
       phone: fd.get('phone')?.toString().trim() ?? '',
       address: fd.get('address')?.toString().trim() ?? '',
-      dateBirth: fd.get('dateBirth') ?? '',
+      birthDate: (fd.get('dateBirth') ?? '').toString().trim(),
       password: (fd.get('password') ?? '').toString()
     };
 
-    crearNegocio(payload);
+    createClient(payload);
   };
 
-  const crearNegocio = async (payload) => {
+  const createClient = async (payload) => {
     try {
-      const resp = await fetch('http://localhost:4000/api/Client', {
+      const resp = await fetch('http://localhost:4000/api/client', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -145,7 +145,7 @@ function UserRegisterForm() {
       if (!resp.ok) throw new Error('Error en la solicitud');
       setSuccess(true);
       setError(false);
-      setTimeout(() => navigate('/login/Client'), 2500);
+      setTimeout(() => navigate('/login/user'), 2500);
     } catch (err) {
       console.error('Fallo de red o CORS:', err);
       setSuccess(false);
@@ -156,7 +156,6 @@ function UserRegisterForm() {
   return (
     <>
       <section className='containerRegisterClient'>
-
         <GoBack dominio='/register' />
         <div className='registerClientForm'>
           <h2 className='titleRegisterClient'>
@@ -328,9 +327,6 @@ function UserRegisterForm() {
               </Link>
               <Link to='/register/business' className='link'>
                 Registrarme como Negocio
-              </Link>
-              <Link to={'/forgot-password/user'} className='link'>
-                ¿Olvidaste tu contraseña?
               </Link>
             </div>
             <div className='containerSubmit'>
